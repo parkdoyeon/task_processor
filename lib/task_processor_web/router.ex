@@ -9,5 +9,6 @@ defmodule TaskProcessorWeb.Router do
     pipe_through :api
 
     post "/", TaskController, :index
+    post "/bash", TaskController, :bash
   end
 end

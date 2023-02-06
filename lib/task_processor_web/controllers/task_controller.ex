@@ -14,4 +14,19 @@ defmodule TaskProcessorWeb.TaskController do
         |> render("error.json", message: message)
     end
   end
+
+  def bash(conn, %{"tasks" => tasks}) do
+    with {:ok, sorted_tasks} <- CommandTask.sort(tasks),
+         commands <-
+           sorted_tasks
+           |> Enum.map(& &1.command)
+           |> Enum.join("$'\n") do
+      text(conn, commands)
+    else
+      {:error, message} ->
+        conn
+        |> put_view(TaskProcessorWeb.ErrorView)
+        |> render("error.json", message: message)
+    end
+  end
 end
