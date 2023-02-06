@@ -1,11 +1,9 @@
 defmodule TaskProcessorWeb.ErrorView do
   use TaskProcessorWeb, :view
 
-  # If you want to customize a particular status code
-  # for a certain format, you may uncomment below.
-  # def render("500.json", _assigns) do
-  #   %{errors: %{detail: "Internal Server Error"}}
-  # end
+  def render("error.json", %{message: message}) do
+    %{error: %{detail: message}}
+  end
 
   # By default, Phoenix returns the status message from
   # the template name. For example, "404.json" becomes

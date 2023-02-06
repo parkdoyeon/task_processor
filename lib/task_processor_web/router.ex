@@ -7,5 +7,7 @@ defmodule TaskProcessorWeb.Router do
 
   scope "/api", TaskProcessorWeb do
     pipe_through :api
+
+    post "/", TaskController, :index
   end
 end
