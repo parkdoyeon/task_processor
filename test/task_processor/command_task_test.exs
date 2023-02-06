@@ -14,8 +14,10 @@ defmodule TaskProcessor.CommandTaskTest do
       %{"name" => "task-4", "command" => "rm /tmp/file1", "requires" => ["task-2", "task-3"]}
     ]
 
-    assert {:ok, ret_tasks} =  CommandTask.sort(tasks)
-    assert [%{name: "task-1"}, %{name: "task-3"}, %{name: "task-2"}, %{name: "task-4"}] = ret_tasks
+    assert {:ok, ret_tasks} = CommandTask.sort(tasks)
+
+    assert [%{name: "task-1"}, %{name: "task-3"}, %{name: "task-2"}, %{name: "task-4"}] =
+             ret_tasks
   end
 
   test "Return error when task dependencies are circular" do
@@ -29,7 +31,7 @@ defmodule TaskProcessor.CommandTaskTest do
       }
     ]
 
-    assert {:error, message} =  CommandTask.sort(tasks)
+    assert {:error, message} = CommandTask.sort(tasks)
     assert message =~ "Unable"
   end
 
@@ -44,7 +46,7 @@ defmodule TaskProcessor.CommandTaskTest do
       }
     ]
 
-    assert {:error, message} =  CommandTask.sort(tasks)
+    assert {:error, message} = CommandTask.sort(tasks)
     assert message =~ "Unable"
   end
 end
