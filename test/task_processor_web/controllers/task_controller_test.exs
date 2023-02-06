@@ -2,7 +2,7 @@ defmodule TaskProcessorWeb.TaskControllerTest do
   use TaskProcessorWeb.ConnCase
 
   describe "index" do
-    test "Sort given tasks", %{conn: conn} do
+    test "Return sorted tasks", %{conn: conn} do
       tasks = [
         %{"name" => "task-1", "command" => "touch /tmp/file1", "requires" => []},
         %{"name" => "task-2", "command" => "cat /tmp/file1", "requires" => ["task-3"]},
@@ -34,7 +34,7 @@ defmodule TaskProcessorWeb.TaskControllerTest do
              } == json_response(conn, 200)
     end
 
-    test "Return error if task is not able to be processed", %{conn: conn} do
+    test "Show error message if task is not able to be processed", %{conn: conn} do
       tasks = [
         %{"name" => "task-1", "command" => "touch /tmp/file1", "requires" => []},
         %{"name" => "impossible-task", "command" => "cat /tmp/file1", "requires" => ["task-3"]}

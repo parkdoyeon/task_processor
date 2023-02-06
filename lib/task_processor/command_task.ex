@@ -3,7 +3,7 @@ defmodule TaskProcessor.CommandTask do
     %{
       name: Map.get(task, "name"),
       command: Map.get(task, "command"),
-      requires: Map.get(task, "requires", []),
+      requires: Map.get(task, "requires"),
       temp_requires: Map.get(task, "requires", [])
     }
   end
