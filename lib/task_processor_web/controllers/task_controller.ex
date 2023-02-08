@@ -20,7 +20,7 @@ defmodule TaskProcessorWeb.TaskController do
          commands <-
            sorted_tasks
            |> Enum.map(& &1.command)
-           |> Enum.join("$'\n") do
+           |> Enum.join("\n") do
       text(conn, commands)
     else
       {:error, message} ->

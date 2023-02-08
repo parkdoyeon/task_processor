@@ -62,7 +62,7 @@ defmodule TaskProcessorWeb.TaskControllerTest do
 
       conn = post(conn, Routes.task_path(conn, :bash), tasks: tasks)
 
-      assert "touch /tmp/file1$'\necho 'Hello Word!' > /tmp/file1$'\ncat /tmp/file1$'\nrm /tmp/file1" ==
+      assert "touch /tmp/file1\necho 'Hello Word!' > /tmp/file1\ncat /tmp/file1\nrm /tmp/file1" ==
                text_response(conn, 200)
     end
 
