@@ -62,7 +62,16 @@ defmodule TaskProcessorWeb.TaskControllerTest do
 
       conn = post(conn, Routes.task_path(conn, :bash), tasks: tasks)
 
-      assert "touch /tmp/file1\necho 'Hello Word!' > /tmp/file1\ncat /tmp/file1\nrm /tmp/file1" ==
+      assert Enum.join(
+               [
+                 "#!/usr/bin/env bash",
+                 "touch /tmp/file1",
+                 "echo 'Hello Word!' > /tmp/file1",
+                 "cat /tmp/file1",
+                 "rm /tmp/file1"
+               ],
+               "\n"
+             ) ==
                text_response(conn, 200)
     end
 

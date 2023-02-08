@@ -9,7 +9,8 @@ defmodule TaskProcessor.CommandTask do
       name: Map.get(task, "name"),
       command: Map.get(task, "command"),
       requires: Map.get(task, "requires"),
-      temp_requires: Map.get(task, "requires", []) # for removing task put in the list
+      # for removing task in sorted list
+      temp_requires: Map.get(task, "requires", [])
     }
   end
 
