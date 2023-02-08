@@ -34,7 +34,7 @@ defmodule TaskProcessorWeb.TaskControllerTest do
              } == json_response(conn, 200)
     end
 
-    test "Show error message if task is not able to be processed", %{conn: conn} do
+    test "Respond error if task is not able to be processed", %{conn: conn} do
       tasks = [
         %{"name" => "task-1", "command" => "touch /tmp/file1", "requires" => []},
         %{"name" => "impossible-task", "command" => "cat /tmp/file1", "requires" => ["task-3"]}
@@ -66,7 +66,7 @@ defmodule TaskProcessorWeb.TaskControllerTest do
                text_response(conn, 200)
     end
 
-    test "Show error message  if task is not able to be processed", %{conn: conn} do
+    test "Respond error if task is not able to be processed", %{conn: conn} do
       tasks = [
         %{"name" => "task-1", "command" => "touch /tmp/file1", "requires" => []},
         %{"name" => "impossible-task", "command" => "cat /tmp/file1", "requires" => ["task-3"]}

@@ -2,7 +2,7 @@ defmodule TaskProcessor.CommandTaskTest do
   use ExUnit.Case
   alias TaskProcessor.CommandTask
 
-  test "Return sort tasks in order" do
+  test "Return tasks in order" do
     tasks = [
       %{"name" => "task-1", "command" => "touch /tmp/file1", "requires" => []},
       %{"name" => "task-2", "command" => "cat /tmp/file1", "requires" => ["task-3"]},
