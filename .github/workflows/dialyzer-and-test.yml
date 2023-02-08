@@ -1,4 +1,4 @@
-name: Elixir CI
+name: Tests
 
 on:
   push:
@@ -32,5 +32,7 @@ jobs:
         restore-keys: ${{ runner.os }}-mix-
     - name: Install dependencies
       run: mix deps.get
+    - name: Run dialyzer
+      run: mix dialyzer
     - name: Run tests
       run: mix test
