@@ -10,9 +10,11 @@ You can traverse the project based on three parts. This project is following [ph
 - Test: [`TaskProcessor.CommandTaskTest`](https://github.com/parkdoyeon/task_processor/blob/main/test/task_processor/command_task_test.exs), [`TaskProcessorWeb.TaskControllerTest`](https://github.com/parkdoyeon/task_processor/blob/main/test/task_processor_web/controllers/task_controller_test.exs)
 
 ## Results
-![workflow](https://github.com/parkdoyeon/task_processor/actions/workflows/dialyzer-and-test.yml/badge.svg)
+![workflow](https://github.com/parkdoyeon/task_processor/actions/workflows/dialyzer-and-test.yml/badge.svg) 
 
-To check weather I successfully solved to problem, I first recommend you first to go test and CI ☝️. I wrote controller and context tests. 
+[dialyzer-and-test.yml](https://github.com/parkdoyeon/task_processor/blob/main/.github/workflows/dialyzer-and-test.yml)
+
+To check weather I successfully solved the problem, I recommend you first to go test and CI ☝️. I wrote controller and context tests. 
 For the success test case, I included sample data in the task instruction pdf.
 
 I made two apis as requested.
