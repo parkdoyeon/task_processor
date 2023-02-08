@@ -1,7 +1,7 @@
 # TaskProcessor
 
 Hello reviewers! Nice to git-meet you.
-I understand reviewing many candidates' code is hard, especially when each of them have different design and styles. So I'd like to briefly guide you on my project.
+I understand reviewing many candidates' code is hard, especially when each of them have different design and style. So I'd like to briefly guide you on my project.
 
 ## Design
 You can traverse the project based on three parts. This project is following [phoenix design guide](https://hexdocs.pm/phoenix/contexts.html#thinking-about-design).
@@ -11,6 +11,7 @@ You can traverse the project based on three parts. This project is following [ph
 
 ## Results
 ![workflow](https://github.com/parkdoyeon/task_processor/actions/workflows/dialyzer-and-test.yml/badge.svg)
+
 To check weather I successfully solved to problem, I first recommend you first to go test and CI ☝️. I wrote controller and context tests. 
 For the success test case, I included sample data in the task instruction pdf.
 
