@@ -7,10 +7,10 @@ I understand reviewing many candidates' code is hard, especially when each of th
 You can traverse the project based on three parts. This project is following [phoenix design guide](https://hexdocs.pm/phoenix/contexts.html#thinking-about-design).
 - Context: [`TaskProcessor.CommandTask`](https://github.com/parkdoyeon/task_processor/blob/main/lib/task_processor/command_task.ex)
 - Controller: [`TaskProcessorWeb.TaskController`](https://github.com/parkdoyeon/task_processor/blob/main/lib/task_processor_web/controllers/task_controller.ex)
-- Test: [`TaskProcessor.CommandTaskTest`](https://github.com/parkdoyeon/task_processor/blob/main/test/task_processor/command_task_test.exs), [`TaskProcessorWeb.TaskControllerTest`]()
+- Test: [`TaskProcessor.CommandTaskTest`](https://github.com/parkdoyeon/task_processor/blob/main/test/task_processor/command_task_test.exs), [`TaskProcessorWeb.TaskControllerTest`](https://github.com/parkdoyeon/task_processor/blob/main/test/task_processor_web/controllers/task_controller_test.exs)
 
 ## Results
-[workflow](https://github.com/parkdoyeon/task_processor/actions/workflows/dialyzer-and-test.yml/badge.svg)
+![workflow](https://github.com/parkdoyeon/task_processor/actions/workflows/dialyzer-and-test.yml/badge.svg)
 To check weather I successfully solved to problem, I first recommend you first to go test and CI ☝️. I wrote controller and context tests. 
 For the success test case, I included sample data in the task instruction pdf.
 
