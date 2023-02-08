@@ -1,10 +1,15 @@
 defmodule TaskProcessor.CommandTask do
+  @moduledoc """
+  This module handles operation of sorting tasks in order.
+  To avoid confusion from Elixir.Task, I named this module CommandTask.
+  """
+
   defp parse(task) do
     %{
       name: Map.get(task, "name"),
       command: Map.get(task, "command"),
       requires: Map.get(task, "requires"),
-      temp_requires: Map.get(task, "requires", [])
+      temp_requires: Map.get(task, "requires", []) # for removing task put in the list
     }
   end
 
