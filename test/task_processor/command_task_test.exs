@@ -32,7 +32,7 @@ defmodule TaskProcessor.CommandTaskTest do
     ]
 
     assert {:error, message} = CommandTask.sort(tasks)
-    assert message =~ "Unable"
+    assert message =~ "not able to process"
   end
 
   test "Return error when there's task not able to process" do
@@ -47,6 +47,6 @@ defmodule TaskProcessor.CommandTaskTest do
     ]
 
     assert {:error, message} = CommandTask.sort(tasks)
-    assert message =~ "Unable"
+    assert message =~ "not able to process"
   end
 end

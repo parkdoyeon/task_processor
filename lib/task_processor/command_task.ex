@@ -15,7 +15,7 @@ defmodule TaskProcessor.CommandTask do
   defp process_priory({[], _priory_tasks}, sorted_tasks), do: {:ok, sorted_tasks}
 
   defp process_priory({_tasks, []}, _sorted_tasks),
-    do: {:error, "Unable to process task, check `requires`"}
+    do: {:error, "Task not able to process exists, check `requires`"}
 
   defp process_priory({tasks, priory_tasks}, sorted_tasks) do
     priory_task_names = Enum.map(priory_tasks, &Map.get(&1, :name))
