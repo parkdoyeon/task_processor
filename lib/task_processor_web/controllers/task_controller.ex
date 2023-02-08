@@ -24,10 +24,7 @@ defmodule TaskProcessorWeb.TaskController do
            |> Enum.join("\n") do
       text(conn, commands)
     else
-      {:error, message} ->
-        conn
-        |> put_view(TaskProcessorWeb.ErrorView)
-        |> render("error.json", message: message)
+      {:error, message} -> text(conn, message)
     end
   end
 end

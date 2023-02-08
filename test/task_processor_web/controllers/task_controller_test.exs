@@ -73,9 +73,9 @@ defmodule TaskProcessorWeb.TaskControllerTest do
       ]
 
       conn = post(conn, Routes.task_path(conn, :bash), tasks: tasks)
+      error_message = text_response(conn, 200)
 
-      assert %{"error" => %{"detail" => message}} = json_response(conn, 200)
-      assert message =~ "not able to process"
+      assert error_message =~ "not able to process"
     end
   end
 end
