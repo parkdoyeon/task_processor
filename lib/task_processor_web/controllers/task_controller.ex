@@ -22,7 +22,7 @@ defmodule TaskProcessorWeb.TaskController do
            sorted_tasks
            |> Enum.map(& &1.command)
            |> Enum.join("\n") do
-      text(conn, commands)
+      text(conn, "#!/usr/bin/env bash\n" <> commands)
     else
       {:error, message} -> text(conn, message)
     end
