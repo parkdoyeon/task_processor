@@ -15,6 +15,7 @@ defmodule TaskProcessorWeb.TaskController do
     end
   end
 
+  @spec bash(Plug.Conn.t(), map) :: Plug.Conn.t()
   def bash(conn, %{"tasks" => tasks}) do
     with {:ok, sorted_tasks} <- CommandTask.sort(tasks),
          commands <-

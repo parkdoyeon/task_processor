@@ -22,7 +22,7 @@ defmodule TaskProcessor.CommandTask do
 
     processed_tasks =
       tasks
-      |> Enum.reject(&match?(%{temp_requires: []}, &1))
+      |> Enum.reject(&(&1.temp_requires == []))
       |> Enum.map(
         &Map.update(&1, :temp_requires, [], fn rs ->
           rs -- priory_task_names
@@ -35,9 +35,11 @@ defmodule TaskProcessor.CommandTask do
   @spec sort([%{}]) :: {:error, [%{}]} | {:ok, [%{}]}
   @doc """
   Topological Sort
-  1. Find priory task; priory task is the one that doesn't have any requires
-  2. Remove priory task's name from rest task's requires and remove itself from the tasks
-  3. Add priory task to sorted task list until every tasks are sorted
+  1. Find priory tasks; priory task is one that doesn't have any requires
+  2. Process priory tasks
+    2-1. Remove priory tasks from tasks and other tasks' requires
+    2-2. Append priory tasks to sorted task list
+  3. Iterate 1-2 until every tasks are sorted
   """
   def sort(tasks) do
     {Enum.map(tasks, &parse/1), []}

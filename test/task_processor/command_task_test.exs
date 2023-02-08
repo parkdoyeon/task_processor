@@ -2,7 +2,7 @@ defmodule TaskProcessor.CommandTaskTest do
   use ExUnit.Case
   alias TaskProcessor.CommandTask
 
-  test "Successfully sort tasks in order" do
+  test "Return sort tasks in order" do
     tasks = [
       %{"name" => "task-1", "command" => "touch /tmp/file1", "requires" => []},
       %{"name" => "task-2", "command" => "cat /tmp/file1", "requires" => ["task-3"]},
@@ -18,6 +18,13 @@ defmodule TaskProcessor.CommandTaskTest do
 
     assert [%{name: "task-1"}, %{name: "task-3"}, %{name: "task-2"}, %{name: "task-4"}] =
              ret_tasks
+  end
+
+  test "Return single valid task" do
+    tasks = [%{"name" => "task-1", "command" => "touch /tmp/file1", "requires" => []}]
+
+    assert {:ok, ret_tasks} = CommandTask.sort(tasks)
+    assert [%{name: "task-1"}] = ret_tasks
   end
 
   test "Return error when task dependencies are circular" do
