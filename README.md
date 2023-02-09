@@ -32,9 +32,9 @@ Hello World!
 
 ## Logic
 
-If you want to check how the task processing logic is implemented, please start from [this line](https://github.com/parkdoyeon/task_processor/blob/main/lib/task_processor/command_task.ex#L36-L42). I wrote on a docstring how sort operations are implemented.
+If you want to check how the task processing logic is implemented, please start from [this line](https://github.com/parkdoyeon/task_processor/blob/main/lib/task_processor/command_task.ex#L42-L58). I wrote on a docstring how sort operations are implemented.
 
-I solved a similar topological sort problem a few months ago to demonstrate the concept of the GenServer to my work colleagues. It was [advent of code 2018 day7](https://adventofcode.com/2018/day/7) part 2 questions. To keep state to find vertex with no incoming edges(`requires` in this problem), it's good to try GenServer. But for this task, requirements are rather not complex. So, I decided to keep it simple.
+I solved a similar topological sort problem a few months ago to demonstrate the concept of the GenServer to my work colleagues. It was [advent of code 2018 day7 part2](https://adventofcode.com/2018/day/7) questions. To keep state to find vertex with no incoming edges(`requires` in this problem), it's good to try GenServer. But for this task, requirements are rather not complex. So, I decided to keep it simple.
 
 ## More
 I spent quite a time thinking whether I use struct or any type of static schema validating task map. But this kind of decision depends on architecture and team convention. If this is an internal project, I would go for the convenience and efficiency of dynamic typing. However, if requests come from outside of the world, I would use embedded schema for type checking and changeset for validation to make unexpected request payload visible.
